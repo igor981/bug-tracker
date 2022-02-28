@@ -41,7 +41,7 @@ const App = () => {
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
+              <Link to={"/"} className="nav-link">
                 Home
               </Link>
             </li>
@@ -102,7 +102,6 @@ const App = () => {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route path="/user" element={<BoardUser />} />
-            
           </Switch>
         </div>
       </div>

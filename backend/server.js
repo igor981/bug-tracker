@@ -16,6 +16,7 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8080;
 
+require('./routes/organisation.routes')(app);
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 

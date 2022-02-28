@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import OrganisationFalse from '../components/OrganisationFalse.js'
 
 const Home = () => {
     const { user: currentUser } = useSelector((state) => state.auth);
@@ -9,7 +10,7 @@ const Home = () => {
   }
   return (
     <div>
-    
+    <OrganisationFalse />
     </div>
   )
 }
