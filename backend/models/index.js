@@ -25,6 +25,8 @@ db.jobtitle = require("../models/jobtitle.model.js")(sequelize, Sequelize);
 db.organisation = require("../models/organisation.model.js")(sequelize, Sequelize);
 db.project = require("../models/project.model.js")(sequelize, Sequelize);
 db.ticket = require("../models/ticket.model.js")(sequelize, Sequelize);
+
+
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",

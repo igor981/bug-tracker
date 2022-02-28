@@ -8,6 +8,16 @@ module.exports = (sequelize, Sequelize) => {
       },
       password: {
         type: Sequelize.STRING
+      },
+      fname: {
+        type: Sequelize.STRING
+      },
+      lname: {
+        type: Sequelize.STRING
+      },
+      organisation: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       }
     });
     return User;

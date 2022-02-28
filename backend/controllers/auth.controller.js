@@ -10,8 +10,10 @@ exports.signup = (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
-  })
+    password: bcrypt.hashSync(req.body.password, 8),
+    fname: req.body.fname,
+    lname: req.body.lname
+    })
     .then(user => {
       if (req.body.roles) {
         Role.findAll({
@@ -69,6 +71,9 @@ exports.signin = (req, res) => {
           username: user.username,
           email: user.email,
           roles: authorities,
+          fname: user.fname,
+          lname: user.lname,
+          organisation: user.organisation,
           accessToken: token
         });
       });
