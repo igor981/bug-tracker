@@ -1,4 +1,4 @@
-import { ORGANISATION_FAIL, ORGANISATION_SUCCESS } from "./types.js";
+import { ORGANISATION_FAIL, ORGANISATION_SUCCESS, SET_MESSAGE } from "./types.js";
 
 import orgService from "../services/org.service.js";
 

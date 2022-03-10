@@ -5,6 +5,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import { register } from "../actions/auth";
+import { orgCreate } from "../actions/organisation";
 const required = (value) => {
   if (!value) {
     return (
@@ -77,7 +78,7 @@ const Register = () => {
     setSuccessful(false);
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(username, email, password, firstName, lastName))
+      dispatch(orgCreate(username, email, password, firstName, lastName))
         .then(() => {
           setSuccessful(true);
         })

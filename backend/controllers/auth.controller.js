@@ -1,6 +1,7 @@
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
+const Organisation = db.organisation;
 const Role = db.role;
 const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
@@ -42,6 +43,11 @@ exports.signin = (req, res) => {
   User.findOne({
     where: {
       username: req.body.username
+    },
+    include: {
+      model: Organisation,
+      as: 'organisations',
+      required: false
     }
   })
     .then(user => {
@@ -61,7 +67,11 @@ exports.signin = (req, res) => {
       var token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
+
+
       var authorities = [];
+
+      console.log('/n USER', user, '\n USER',);
       user.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
           authorities.push("ROLE_" + roles[i].name.toUpperCase());
@@ -73,7 +83,7 @@ exports.signin = (req, res) => {
           roles: authorities,
           fname: user.fname,
           lname: user.lname,
-          organisation: user.organisation,
+          organisation: user.organisations,
           accessToken: token
         });
       });

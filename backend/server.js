@@ -20,30 +20,11 @@ require('./routes/organisation.routes')(app);
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Db');
-  initial();
-});
-function initial() {
-  Role.create({
-    id: 1,
-    name: "user"
-  });
- 
-  Role.create({
-    id: 2,
-    name: "moderator"
-  });
- 
-  Role.create({
-    id: 3,
-    name: "admin"
-  });
-}
+
 /* 
 Use sync with no parameters when in production 
 */
-//db.sequelize.sync()
+db.sequelize.sync()
 
 
 
