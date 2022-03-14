@@ -30,12 +30,12 @@ const OrganisationFalse = () => {
 
     dispatch(orgCreate(currentUser.id, orgName, orgDesc))
       .then(() => {
-        setSuccessful(true);
         setLoading(false)
+        setSuccessful(true);
       })
       .catch(() => {
-        setSuccessful(false);
         setLoading(false)
+        setSuccessful(false);
       });
   };
   return (

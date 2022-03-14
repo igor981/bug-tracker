@@ -19,7 +19,7 @@ exports.create = async (req, res) => {
         await user.setOrganisations(organisation)
         
 
-        res.json({user})
+        res.json({organisation})
         
     } catch (error) {
         res.json({message: error.message})

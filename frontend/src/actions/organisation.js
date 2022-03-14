@@ -7,7 +7,8 @@ export const orgCreate = (userId, orgName, orgDesc) => (dispatch) => {
     return orgService.createOrg(userId, orgName, orgDesc).then(
         (response) => {
              dispatch({
-                 type: ORGANISATION_SUCCESS
+                 type: ORGANISATION_SUCCESS,
+                 payload: response.data
              });
              dispatch({
                 type: SET_MESSAGE,
