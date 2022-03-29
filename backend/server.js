@@ -3,8 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./models");
 
-const Role = db.role;
-
 const corsOptions = {
   origin: "http://localhost:8081",
 };

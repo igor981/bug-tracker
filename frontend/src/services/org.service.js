@@ -8,6 +8,12 @@ const createOrg = (userId, orgName, orgDesc) => {
   });
 };
 
+const deleteOrg = (orgId) => {
+  return axios.post(API_URL + 'delete', {
+    orgId
+  })
+}
+
 
 export default {
     createOrg

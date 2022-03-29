@@ -9,4 +9,5 @@ module.exports = (app) => {
     next();
   });
   app.post("/api/organisation/create", controller.create);
+  app.post("/api/organisation/delete", controller.delete);
 }

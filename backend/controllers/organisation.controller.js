@@ -27,3 +27,18 @@ exports.create = async (req, res) => {
     // Save User to Database
 
   };
+
+  exports.delete = async (req, res) => {
+    try {
+      const orgId = req.body.orgId;
+      await Organisation.destroy({
+        where: {
+            id: orgId
+        }
+      })
+      res.json({message: 'Organisation has been deleted'})
+      
+    } catch (error) {
+      res.json({message: error.message})
+    }
+  }
