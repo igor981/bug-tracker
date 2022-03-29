@@ -30,6 +30,8 @@ const OrganisationFalse = () => {
 
     dispatch(orgCreate(currentUser.id, orgName, orgDesc))
       .then(() => {
+
+        console.log('test');
         setLoading(false)
         setSuccessful(true);
       })

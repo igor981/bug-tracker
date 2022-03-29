@@ -14,7 +14,16 @@ const deleteOrg = (orgId) => {
   })
 }
 
+const getAllOrgs = async (userId) => {
+  const allOrgs = await axios.post(API_URL + 'getAll', {
+    userId
+  })
+  return allOrgs.data.allOrgs
+}
+
 
 export default {
-    createOrg
+    createOrg,
+    deleteOrg,
+    getAllOrgs
   };

@@ -5,6 +5,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   SET_MESSAGE,
+  ORGANISATION_FETCH,
 } from "./types";
 import AuthService from "../services/auth.service";
 export const register = (username, email, password, fname, lname) => (dispatch) => {
@@ -40,10 +41,22 @@ export const register = (username, email, password, fname, lname) => (dispatch) 
 export const login = (username, password) => (dispatch) => {
   return AuthService.login(username, password).then(
     (data) => {
+      const allOrgs = data.orgFetch
+
+      delete data.orgFetch
+
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
       });
+
+
+      dispatch({
+        type: ORGANISATION_FETCH,
+        payload: allOrgs,
+      });
+
+
       return Promise.resolve();
     },
     (error) => {

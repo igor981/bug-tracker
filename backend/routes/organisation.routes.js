@@ -10,4 +10,5 @@ module.exports = (app) => {
   });
   app.post("/api/organisation/create", controller.create);
   app.post("/api/organisation/delete", controller.delete);
+  app.post("/api/organisation/getall", controller.getAll);
 }

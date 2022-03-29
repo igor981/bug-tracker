@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
  
         const user = await User.findByPk(req.body.userId)
 
-        await user.setOrganisations(organisation)
+        await user.addOrganisation(organisation)
         
 
         res.json({organisation})
@@ -38,6 +38,19 @@ exports.create = async (req, res) => {
       })
       res.json({message: 'Organisation has been deleted'})
       
+    } catch (error) {
+      res.json({message: error.message})
+    }
+  }
+
+  exports.getAll = async (req, res) => {
+    try {
+      const userId = req.body.userId
+      const allOrgs = await Organisation.findAll({
+        include: { model: User, where: { id: {  [Op.eq]: userId} }},
+      }
+      )
+      res.json({allOrgs})
     } catch (error) {
       res.json({message: error.message})
     }
